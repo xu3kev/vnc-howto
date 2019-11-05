@@ -22,6 +22,11 @@ $ mkdir -p ~/.vnc
 $ printf '#!/bin/sh\nstartxfce4&\n' > ~/.vnc/xstartup
 $ chmod +x ~/.vnc/xstartup
 
+try the following command in the ~/.vnc/xstartup instead if you encounter dbus errors.
+dbus-launch /usr/bin/startxfce4 &
+ref https://github.com/TigerVNC/tigervnc/issues/592
+
+
 設定 vnc 密碼為六個零（若不放 ~/.vnc/passwd 密碼檔，第一次開啟 VNC 會要求你指定一個新密碼）
 $ xxd -p -r <<< e940179b669dc61d > ~/.vnc/passwd
 $ chmod 0600 ~/.vnc/passwd
